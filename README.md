@@ -1,47 +1,41 @@
-# ☁️ CloudOps Unified Portal — 7 Gen AI Features
+# ☁️ CloudOps Unified Portal — FutureMinds
 
-Azure multi-subscription management with **7 AI-powered features** built on Claude (Anthropic).
+Production-grade Azure multi-subscription management portal with **7 AI-powered features** built on Claude (Anthropic).
 
-## 🧠 7 AI Features
+## 🧠 7 AI Features with Scenario Coverage
 
-| # | Feature | Module | What It Does |
-|---|---------|--------|-------------|
-| 1 | **NL → IaC Generator** | Provisioning | Describe infra in English → Bicep/Terraform with PE, diagnostics, tags |
-| 2 | **Ops Chatbot / Copilot** | Chat Interface | Natural language queries about your Azure environment |
-| 3 | **Resource Drift Detector** | Drift | ARM live state vs IaC repo → auto-fix PRs |
-| 4 | **Access Anomaly / RBAC AI** | Identity | Stale SPNs, over-privilege, least-privilege recommendations |
-| 5 | **Network Posture Analyzer** | Network | NSG/FW/UDR vs CIS benchmarks, auto topology, rule conflicts |
-| 6 | **FinOps AI Engine** | Cost | Cost anomalies, forecast, rightsizing, orphan cleanup |
-| 7 | **Risk Scorer + Auto-Approve** | Approvals | Score 1-10, auto-approve low risk, SLA-tracked chains |
+| # | Feature | Scenarios Included | Key Capabilities |
+|---|---------|-------------------|------------------|
+| 1 | **NL → IaC Generator** | AKS cluster provisioning, SQL Database, Storage, GPU VMs | Form + NL input → Bicep with PE, diagnostics, tags, Managed Identity |
+| 2 | **Ops Chatbot / Copilot** | Untagged resources, over-provisioned VMs, PIM expiry, IaC generation | RAG context: runbooks, env configs, cost data. 4 quick-action templates |
+| 3 | **Resource Drift Detector** | 6 scenarios: NSG rule bypass, TLS downgrade, Key Vault soft-delete, VM resize, storage exposure, AKS manual scale | Auto-fix PR, accept drift, full diff view |
+| 4 | **Access Anomaly / RBAC AI** | Stale SPN (127d), impossible travel (Russia), over-priv CI/CD, inactive group members, unusual PIM activation, expiring roles | Least-privilege recs, sign-in heatmap, incident creation |
+| 5 | **Network Posture Analyzer** | SSH open to internet, storage public access, FW wildcard outbound, missing flow logs, missing force-tunnel UDR | CIS benchmarks, auto-topology generation, FW conflict matrix, remediation CLI |
+| 6 | **FinOps AI Engine** | VM rightsizing ($4.2K), RI conversion ($3.6K), orphan cleanup ($2.2K), auto-pause ($1.8K), Spot VM ($1.1K) | Cost breakdown, 30-day forecast, anomaly detection with root cause |
+| 7 | **Risk Scorer + Approvals** | 3 pending: Cosmos DB PE (8.1), ETL SPN access (5.3), GPU VM (8.6) | Score breakdown per factor, 3-tier routing, scoring activity log |
 
-## 🚀 Deploy to Streamlit Cloud
+## 🚀 Deploy
 
-### Step 1: Push to GitHub
 ```bash
-unzip cloudops-portal.zip && cd cloudops-portal
-git init && git add . && git commit -m "CloudOps Portal v2 - 7 AI Features"
-git remote add origin https://github.com/<your-user>/cloudops-portal.git
-git push -u origin main
+# 1. Push to GitHub
+unzip cloudops-portal-v3.zip && cd cloudops-portal
+git init && git add . && git commit -m "CloudOps Portal v3 - FutureMinds"
+git remote add origin https://github.com/<you>/cloudops-portal.git && git push -u origin main
+
+# 2. Deploy on Streamlit Cloud
+# → share.streamlit.io → New app → Select repo → Branch: main → File: app.py → Deploy
+
+# 3. (Optional) Enable live AI
+# App menu → Settings → Secrets → Add: ANTHROPIC_API_KEY = "sk-ant-..."
 ```
 
-### Step 2: Deploy on Streamlit Cloud
-1. Go to [share.streamlit.io](https://share.streamlit.io)
-2. **New app** → Select repo → Branch: `main` → File: `app.py`
-3. Click **Deploy** (2-3 min)
-
-### Step 3: Enable AI (Optional)
-App menu → **Settings** → **Secrets** → Add:
-```
-ANTHROPIC_API_KEY = "sk-ant-..."
-```
-
-> Portal works fully without API key — AI features use smart fallback templates. API key enables live AI responses.
+> Works fully without API key — all 7 features use rich fallback scenarios. API key enables live Claude responses.
 
 ## 🏗️ Tech Stack
-- **Frontend:** Streamlit (Python)
-- **Charts:** Plotly
+- **Frontend:** Streamlit 1.32+ with custom CSS (DM Sans + JetBrains Mono)
+- **Charts:** Plotly Express + Graph Objects
 - **AI:** Anthropic Claude API (claude-sonnet-4-20250514)
-- **Data:** Pandas + simulated Azure data
+- **Data:** Pandas + NumPy + simulated Azure operational data
 
-## 📊 Personas
-Cloud Engineer · Network Admin · Security Admin · FinOps Analyst · DevOps Engineer · App Owner
+## 👤 7 Personas
+Cloud Engineer · Network Admin · Security Admin · FinOps Analyst · DevOps Engineer · App Owner · Platform Lead
